@@ -1,0 +1,10 @@
+{
+  "mode": "new-customer",
+  "offer": "Saya bantu kontraktor & desainer interior dapat lebih banyak klien lewat outreach langsung yang tertarget, bukan iklan sosmed yang mahal dan mengandalkan viral.",
+  "goal": "book-call",
+  "sender": "Kendrew",
+  "categories": ["interior designer", "kontraktor"],
+  "cities": ["Jakarta"],
+  "limit": 20,
+  "followup_days": 3
+}

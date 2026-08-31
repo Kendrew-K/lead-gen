@@ -1,0 +1,10 @@
+# Live API keys. Never commit; .env.example documents the shape.
+.env
+
+# Scraped business contacts (names, phones, addresses). Personal data under
+# UU PDP — stays local, never goes to a remote, private or not.
+data/
+
+.venv/
+__pycache__/
+*.pyc
