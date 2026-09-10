@@ -159,7 +159,18 @@ def _save_json(leads, name):
 
 
 def _load_json(name):
-    return json.loads((config.data_dir(name) / "leads.json").read_text(encoding="utf-8"))
+    """Load data/<name>/leads.json, or exit telling the user to run `find` first.
+
+    Every command after `find` reads this file, and on a fresh clone it does not
+    exist yet. Without this the first thing a new user sees is a FileNotFoundError
+    traceback pointing at a path they have no reason to recognise.
+    """
+    path = config.data_dir(name) / "leads.json"
+    if not path.exists():
+        raise SystemExit(
+            f"No leads yet for campaign '{name}' ({path} is missing)." + chr(10)
+            + f"Run this first:  python run.py find --campaign {name}")
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 load_leads = _load_json  # public alias for run.py / outreach.py
