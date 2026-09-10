@@ -10,12 +10,22 @@ Local, personal tool. Not SaaS. Low, manual volume only (WhatsApp ban + UU PDP s
 
 ## Setup
 
-```
+Python 3.10+.
+
+```bash
+git clone https://github.com/Kendrew-K/lead-gen.git
+cd lead-gen
 python -m venv .venv
-.venv\Scripts\activate          # Windows
+.venv\Scripts\activate            # Windows
+source .venv/bin/activate         # macOS / Linux
 pip install -r requirements.txt
-copy .env.example .env          # then fill in keys
+cp .env.example .env              # Windows: copy .env.example .env
 ```
+
+Then fill in `.env`. Nothing under `data/` ships with this repo: it holds
+scraped business contacts, which are personal data under Indonesia's UU PDP, so
+it is gitignored and stays on the machine that collected it. Every run
+recreates it from scratch.
 
 Keys (all free tiers):
 - **GOOGLE_PLACES_API_KEY** — *required.* Google Cloud Console → enable "Places API (New)" → create an API key. Has free monthly credit.
